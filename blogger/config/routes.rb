@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'drinks#index'
   root to: 'articles#index'
 
   resources :articles do
@@ -10,6 +11,6 @@ Rails.application.routes.draw do
   resources :author_sessions, only: [ :new, :create, :destroy ]
 
   get 'login'  => 'author_sessions#new'
-  get 'logout' => 'author_sessions#destroy' 
+  get 'logout' => 'author_sessions#destroy'
 
 end
