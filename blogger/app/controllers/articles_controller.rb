@@ -1,13 +1,15 @@
 class ArticlesController < ApplicationController
   include ArticlesHelper
 
+  before_filter :require_login, only: [:new, :create, :edit, :update, :destroy]
+
   def index
     @article = Article.all
   end
 
   def show
     @article = Article.find(params[:id])
-    
+
     @comment = Comment.new
     @comment.article_id = @article.id
   end
